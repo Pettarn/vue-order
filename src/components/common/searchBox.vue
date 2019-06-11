@@ -16,9 +16,9 @@ export default {
     top: 0;
     transform: translateX(-50%);
     width: 100%;
-    height: 70px;
-    border-radius: 35px;
+    height: 54px;
     background-color: #d6d6d6;
+    z-index: 100;
 }
 </style>
 
