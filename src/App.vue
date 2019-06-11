@@ -1,23 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <search-box></search-box>
+    <foot-box></foot-box>
   </div>
 </template>
 
 <script>
+import searchBox from './components/common/searchBox'
+import footBox from './components/common/footBox'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    footBox,
+    searchBox,
+  },
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 800px;
+  width: 100%;
 }
 </style>
