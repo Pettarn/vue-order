@@ -1,6 +1,8 @@
 <template>
     <div id="foot-box">
-        
+        <div id="foot-box-index"></div>
+        <div id="foot-box-second"></div>
+        <div id="foot-box-third"></div>
     </div>
 </template>
 
@@ -18,6 +20,13 @@ export default {
     height: 70px;
     background-color: #333333;
 }
+#foot-box-index, #foot-box-second, #foot-box-third {
+    float: left;
+    height: 100%;
+    width: 33.33%;
+    background-color: #ef7c6d;
+}
+
 </style>
 
 

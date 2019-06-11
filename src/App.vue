@@ -25,7 +25,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+* {
+  box-sizing: border-box;
+}
+
 #app {
   height: 800px;
   width: 100%;
