@@ -22,7 +22,11 @@ export default {
 }
 
 #app {
+  position: absolute;
   height: 800px;
   width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #dee1e6;
 }
 </style>

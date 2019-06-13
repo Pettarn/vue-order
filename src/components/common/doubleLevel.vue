@@ -41,12 +41,14 @@ export default {
     border: .5px solid;
 }
 #double-level-first>div, #double-level-second>div {
+    
     float: left;
     width: 20%;
     height: 100%;
     background-color: #ff7d89;
     border: .5px solid;
 }
+
 </style>
 
 

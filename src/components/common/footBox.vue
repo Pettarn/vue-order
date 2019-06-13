@@ -2,7 +2,7 @@
     <div id="foot-box">
         <router-link id="foot-box-index" to="/"></router-link>
         <router-link id="foot-box-second" to="/order"></router-link>
-        <router-link id="foot-box-third"></router-link>
+        <router-link id="foot-box-third" to="/myhome"></router-link>
     </div>
 </template>
 
