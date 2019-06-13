@@ -1,8 +1,8 @@
 <template>
     <div id="foot-box">
-        <div id="foot-box-index"></div>
-        <div id="foot-box-second"></div>
-        <div id="foot-box-third"></div>
+        <router-link id="foot-box-index" to="/"></router-link>
+        <router-link id="foot-box-second" to="/order"></router-link>
+        <router-link id="foot-box-third"></router-link>
     </div>
 </template>
 
