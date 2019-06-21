@@ -1,6 +1,6 @@
 <template>
     <div id="my-home">
-        <header id="my-home-head"></header>
+        <div id="my-home-head"></div>
         <div id="my-home-avatar"></div>
         <div id="my-home-finance"></div>
         <div id="my-home-collection"></div>

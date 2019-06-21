@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="slide">
+      <router-view></router-view>
+    </transition>
     <foot-box></foot-box>
   </div>
 </template>
@@ -20,6 +22,9 @@ export default {
 * {
   box-sizing: border-box;
 }
+.router-link-exact-active {
+  background-color: #000 !important;
+}
 
 #app {
   position: absolute;
@@ -28,5 +33,12 @@ export default {
   left: 0;
   top: 0;
   background-color: #dee1e6;
+}
+.slide-enter, .slide-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.slide-enter-active, .slide-leave-active {
+  transition: all 3s ease;
 }
 </style>
