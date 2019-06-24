@@ -12,7 +12,6 @@ export default {
 <style scoped>
 #search-box {
     position: fixed;
-    left: 0;
     top: 0;
     width: 100%;
     height: 54px;

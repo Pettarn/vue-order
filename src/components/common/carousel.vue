@@ -1,5 +1,5 @@
 <template>
-    <div id="container">
+    <div id="carousel">
         
     </div>
 </template>
@@ -11,14 +11,13 @@ export default {
 </script>
 
 <style scoped>
-    #container {
-        position: absolute;
-        height: 150px;
-        width: 100%;
-        left: 0;
-        top: 60px; 
-        background-color: #0dbc79;
-    }
+#carousel {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: grey;
+    margin-bottom: 3px;
+}
 </style>
 
 

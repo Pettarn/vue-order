@@ -1,12 +1,23 @@
 <template>
     <div id="my-home">
-        <div id="my-home-head"></div>
-        <div id="my-home-avatar"></div>
-        <div id="my-home-finance"></div>
-        <div id="my-home-collection"></div>
-        <div id="my-home-customer-service"></div>
-        <div id="my-home-join-in"></div>
-        <div id="my-home-developer"></div>
+        <div id="my-home-head">
+            <div id="my-home-head-bell"></div>
+        </div>
+        <div id="my-home-body">
+            <div id="my-home-body-avater">
+                <div id="my-home-body-avater-name">
+                    <div id="my-home-body-avater-name-font">123</div>
+                    <div id="my-home-body-avater-name-message">再忙也要记得吃饭哟~</div>
+                </div>
+                <div id="my-home-body-avater-picture"></div>
+            </div>
+            <div id="my-home-body-finance">
+                <div id="my-home-body-finance-red-bag"></div>
+                <div id="my-home-body-finance-money-bag"></div>
+            </div>
+            <div id="my-home-body-collection"></div>
+            <div id="my-home-body-setting"></div>
+        </div>
     </div>
 </template>
 
@@ -22,59 +33,98 @@ export default {
         position: fixed;
         width: 100%;
         height: 70px;
-        left: 0;
+        /* left: 0; */
         top: 0;
         background-color: #0188fb;
         z-index: 1000;
     }
-    #my-home-avatar {
+    #my-home-head-bell {
         position: absolute;
-        width: 100%;
-        height: 170px;
-        left: 0;
-        top: 70px;
-        background-color: #0dbc79;
+        right: 0;
+        height: 100%;
+        width: 20%;
+        background-color: #444555;
     }
-    #my-home-finance {
+    #my-home-body {
+        position: relative;
+        /* left: 0; */
+        top: 70px;
+        width: 100%;
+        background-color: #000;
+    }
+    #my-home-body-avater {
+        position: relative;
+        /* left: 0; */
+        width: 100%;
+        height: 120px;
+        background-color: #ddd888;
+    }
+    #my-home-body-avater-name {
         position: absolute;
+        /* left: 0; */
+        width: 70%;
+        height: 100%;
+        background-color: red;
+    }
+    #my-home-body-avater-name-font {
+        position: absolute;
+        top: .2em;
+        margin-left: 10%;
+        top: 0;
+        font-size: 3em;
+    }
+    #my-home-body-avater-name-message {
+        position: absolute;
+        top: 2.8em;
+        margin-left: 10%;
+        font-size: 1.5em;
+    }
+    #my-home-body-avater-picture {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 30%;
+        background-color: aqua;
+    }
+    #my-home-body-finance {
+        position: relative;
+        /* left: 0; */
+        margin-top: 3px;
         width: 100%;
         height: 130px;
-        left: 0;
-        top: 240px;
-        background-color: #fafafa;
+        background-color: #888ddd;
     }
-    #my-home-collection {
+    #my-home-body-finance-red-bag {
         position: absolute;
-        width: 100%;
-        height: 60px;
-        left: 0;
-        top: 380px;
-        background-color: #fafafa;
-        
+        left: 3%;
+        width: 46%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 10%;
     }
-    #my-home-customer-service {
+    #my-home-body-finance-money-bag {
         position: absolute;
-        width: 100%;
-        height: 60px;
-        left: 0;
-        top: 442px;
-        background-color: #fafafa;
+        right: 3%;
+        width: 46%;
+        height: 100%;
+        background-color: #000;
+        border-radius: 10%;
     }
-    #my-home-join-in {
-        position: absolute;
-        width: 100%;
-        height: 60px;
-        left: 0;
-        top: 504px;
-        background-color: #fafafa;
-    }
-    #my-home-developer {
-        position: absolute;
+    #my-home-body-collection {
+        position: relative;
+        margin-top: 5px;
+        /* left: 0; */
         width: 100%;
         height: 100px;
-        left: 0;
-        top: 564px;
-        background-color: #ffc700;
+        background-color: yellow;
+    }
+    #my-home-body-setting {
+        position: relative;
+        margin-top: 3px;
+        /* left: 0; */
+        width: 100%;
+        height: 100px;
+        background-color: yellow;
     }
 </style>
 

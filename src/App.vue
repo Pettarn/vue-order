@@ -20,18 +20,17 @@ export default {
 
 <style>
 * {
-  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 .router-link-exact-active {
   background-color: #000 !important;
 }
 
 #app {
-  position: absolute;
-  height: 800px;
-  width: 100%;
-  left: 0;
-  top: 0;
+  position: relative;
+  /* width: 100%; */
   background-color: #dee1e6;
 }
 .slide-enter, .slide-leave-to {
