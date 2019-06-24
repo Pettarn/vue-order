@@ -2,7 +2,7 @@
     <div id="recommend">
         <div id="recommend-title">推荐商家</div>
         <div id="recommend-each-business">
-            <div v-for="item in list" :key="item">{{ item.name }}</div>
+            <div id="recommend-each-business-per" v-for="item in list" :key="item">{{ item.name }}</div>
         </div>
     </div>
 </template>
@@ -44,6 +44,13 @@ export default {
     position: relative;
     width: 100%;
     background-color: #f00;
+    margin-bottom: 70px;
+}
+#recommend-each-business-per {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: grey;
 }
 </style>
 

@@ -22,7 +22,6 @@ export default {
 * {
   padding: 0;
   margin: 0;
-  overflow: hidden;
 }
 .router-link-exact-active {
   background-color: #000 !important;
