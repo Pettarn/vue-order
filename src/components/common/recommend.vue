@@ -2,7 +2,11 @@
     <div id="recommend">
         <div id="recommend-title">推荐商家</div>
         <div id="recommend-each-business">
-            <div id="recommend-each-business-per" v-for="item in list" :key="item">{{ item.name }}</div>
+            <router-link to="/business">
+                <div id="recommend-each-business-per"  v-for="item in list" :key="item.id">
+                    {{ item.name }}
+                </div>
+            </router-link>
         </div>
     </div>
 </template>
@@ -13,13 +17,16 @@ export default {
         return {
             list: [
                 {
+                    id: 1,
                     name: 1,
                 },
                 {
-                    name: 1,
+                    id: 2,
+                    name: 2,
                 },
                 {
-                    name: 1,
+                    id: 3,
+                    name: 3,
                 },
             ]
         }
