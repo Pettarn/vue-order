@@ -6,10 +6,12 @@ import homePage from '../components/page/homePage.vue'
 import order from '../components/page/order.vue'
 import myHome from '../components/page/myHome.vue'
 import businessPage from '../components/page/businessPage.vue'
+import entry from '../components/page/entry.vue'
 
 import businessIndex from '../components/page/businessIndex.vue'
 import businessSecond from '../components/page/businessSecond.vue'
 import businessThird from '../components/page/businessThird.vue'
+
 
 Vue.use(Router)
 
@@ -61,6 +63,10 @@ let routes = [
         component: businessThird,
       }
     ]
+  },
+  {
+    path: '/entry',
+    component: entry,
   }
 ]
 

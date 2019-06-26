@@ -5,10 +5,10 @@
         </div>
         <div id="my-home-body">
             <div id="my-home-body-avater">
-                <div id="my-home-body-avater-name">
+                <router-link id="my-home-body-avater-name" to="/entry">
                     <div id="my-home-body-avater-name-font">123</div>
                     <div id="my-home-body-avater-name-message">再忙也要记得吃饭哟~</div>
-                </div>
+                </router-link>
                 <div id="my-home-body-avater-picture"></div>
             </div>
             <div id="my-home-body-finance">
