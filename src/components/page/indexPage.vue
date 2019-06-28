@@ -19,19 +19,18 @@ export default {
 </script>
 
 <style scoped>
-
-
-
 #app {
   position: relative;
   /* width: 100%; */
   background-color: #dee1e6;
 }
-.slide-enter, .slide-leave-to {
+.slide-enter,
+.slide-leave-to {
   opacity: 0;
   transform: translateX(-100%);
 }
-.slide-enter-active, .slide-leave-active {
+.slide-enter-active,
+.slide-leave-active {
   transition: all 3s ease;
 }
 </style>

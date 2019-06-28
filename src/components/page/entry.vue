@@ -4,10 +4,10 @@
             <router-link id="entry-head-back" to="/indexPage/myhome">返回</router-link>
         </div>
         <div id="entry-body">
-            <form id="entry-body-form" action="" method="">
-                <input id="entry-body-form-account" type="number" placeholder="账号" name="account"><br>
+            <form id="entry-body-form" action="http://10.2.69.11:8080/EleServer_war_exploded/login" method="post">
+                <input id="entry-body-form-account" type="text" placeholder="账号" name="name"><br>
                 <input id="entry-body-form-password" type="password" placeholder="密码" name="password"><br>
-                <input id="entry-body-form-submit" type="submit" value="登录">
+                <input id="entry-body-form-submit" type="button" value="登录">
             </form>
         </div>
     </div>
@@ -45,11 +45,13 @@ export default {
 }
 #entry-body-form-account {
     width: 100%;
-    height: 40px;
+    height: 50px;
+    font-size: 30px;
 }
 #entry-body-form-password {
     width: 100%;
-    height: 40px;
+    height: 50px;
+    font-size: 30px;
 }
 #entry-body-form-submit {
     width: 100%;
