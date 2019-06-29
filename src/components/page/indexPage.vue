@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <transition name="slide">
-      <router-view></router-view>
-    </transition>
+    <!-- <transition name="slide"> -->
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    <!-- </transition> -->
     <foot-box></foot-box>
   </div>
 </template>

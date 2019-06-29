@@ -30,14 +30,17 @@ let routes = [
       },
       {
         path: 'homePage',
+        name: 'homePage',
         component: homePage,
       },
       {
         path: 'order',
+        name: 'order',
         component: order,
       },
       {
         path: 'myHome',
+        name: 'myHome',
         component: myHome,
       },
     ]
