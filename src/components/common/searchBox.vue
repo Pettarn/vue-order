@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import '../../assets/icon/iconfont'
 export default {
 }
 </script>
