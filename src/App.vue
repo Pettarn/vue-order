@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style>
+@import url('./assets/style/_normalize.css');
 * {
   padding: 0;
   margin: 0;
