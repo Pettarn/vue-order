@@ -28,9 +28,11 @@
 </template>
 
 <script>
+import {getMenu} from '../../api/business'
 export default {
     data () {
         return {
+            businessId: '',
             list: [
                 {
                     id: 1,
@@ -46,7 +48,15 @@ export default {
                 },
             ]
         }
-    }
+    },
+    mounted() {
+        getMenu().then(res => {
+            this.list = res.foods.filter(food => {
+                food.price > 1
+            })
+            
+        })
+    },
 }
 </script>
 

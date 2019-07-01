@@ -2,20 +2,38 @@
     <div id="entry">
         <div id="entry-head">
             <router-link id="entry-head-back" to="/indexPage/myhome">返回</router-link>
+            <router-link id="entry-head-register" to="/register" tag="div">新用户注册</router-link>
         </div>
         <div id="entry-body">
-            <form id="entry-body-form" action="http://10.2.69.11:8080/EleServer_war_exploded/login" method="post">
-                <input id="entry-body-form-account" type="text" placeholder="账号" name="name"><br>
-                <input id="entry-body-form-password" type="password" placeholder="密码" name="password"><br>
-                <input id="entry-body-form-submit" type="button" value="登录">
-            </form>
+            <input id="entry-body-form-account" v-model="userLoginParams.name" type="text" placeholder="账号"><br>
+            <input id="entry-body-form-password" v-model="userLoginParams.password" type="text" placeholder="密码"><br>
+            <input id="entry-body-form-submit" @click="login()" @keyup.enter="login()" type="button" value="登录">
         </div>
     </div>
 </template>
 
 <script>
+import {getUser} from '../../api/user'
 export default {
-    
+
+    data () {
+        return {
+            userLoginParams: {
+                name: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        login () {
+            let params = this.userLoginParams
+            getUser(params).then(res => {
+                if(res.success === true) {
+                    this.$router.push({ path: '/'})
+                }
+            })
+        }
+    },
 }
 </script>
 
@@ -38,6 +56,16 @@ export default {
     width: 50px;
     height: 100%;
     background-color: yellow;
+}
+#entry-head-register {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 5px;
+    top: 0%;
+    height: 100%;
+    font-size: 2em;
 }
 #entry-body-headbar {
     position: relative;

@@ -2,8 +2,8 @@
     <div id="recommend">
         <div id="recommend-title">推荐商家</div>
         <div id="recommend-each-business">
-            <router-link to="/business">
-                <div id="recommend-each-business-per"  v-for="item in list" :key="item.id">
+            <router-link v-for="item in list" :key="item.id" :to="{ path: '/business/businessIndex', params: { businessId: item.id } }">
+                <div id="recommend-each-business-per">
                     {{ item.name }}
                 </div>
             </router-link>
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import {getBusiness} from '../../api/business'
 export default {
     data () {
         return {
@@ -30,8 +31,12 @@ export default {
                 },
             ]
         }
-    }
-    
+    },
+    mounted() {
+        getBusiness().then(res => {
+            this.list = res.foods
+        })
+    },
 }
 </script>
 

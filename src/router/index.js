@@ -7,6 +7,7 @@ import order from '../components/page/order.vue'
 import myHome from '../components/page/myHome.vue'
 import businessPage from '../components/page/businessPage.vue'
 import entry from '../components/page/entry.vue'
+import register from '../components/page/register.vue'
 
 import businessIndex from '../components/page/businessIndex.vue'
 import businessSecond from '../components/page/businessSecond.vue'
@@ -70,6 +71,10 @@ let routes = [
   {
     path: '/entry',
     component: entry,
+  },
+  {
+    path: '/register',
+    component: register,
   }
 ]
 
