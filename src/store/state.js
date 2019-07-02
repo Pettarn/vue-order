@@ -5,6 +5,8 @@ export default {
     userInfo: null,
     // 购物车列表
     cartList: [],
+    // 商家ID
+    businessId: '',
     // 商家信息
     businessInfo: null,
 }

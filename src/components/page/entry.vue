@@ -7,7 +7,7 @@
         <div id="entry-body">
             <input id="entry-body-form-account" v-model="userLoginParams.name" type="text" placeholder="账号"><br>
             <input id="entry-body-form-password" v-model="userLoginParams.password" type="text" placeholder="密码"><br>
-            <input id="entry-body-form-submit" @click="login()" @keyup.enter="login()" type="button" value="登录">
+            <input id="entry-body-form-submit" @click="login()" type="button" value="登录">
         </div>
     </div>
 </template>
@@ -28,8 +28,13 @@ export default {
         login () {
             let params = this.userLoginParams
             getUser(params).then(res => {
-                if(res.success === true) {
+                console.log(res)
+                // this.$store.commit('ADD_USERINFO', res)
+                // console.log(this.$store.state.userInfo)
+                if(res.success == true) {
                     this.$router.push({ path: '/'})
+                } else {
+
                 }
             })
         }

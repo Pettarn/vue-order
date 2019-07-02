@@ -1,5 +1,5 @@
 import http from './axiosUtils'
-const baseUrl = 'http://10.2.69.175:8080/EleServer_war_exploded'
+const baseUrl = 'http://10.2.69.168:8080/EleServer_war_exploded'
 
 // 商家信息
 export const getBusiness = (params = {}) => {
@@ -8,5 +8,5 @@ export const getBusiness = (params = {}) => {
 
 // 商家的菜单
 export const getMenu = (params = {}) => {
-    return http.fetchPost(`${baseUrl}/showTypeFoodTwo`, params)
+    return http.fetchPost(`${baseUrl}/showTypeFoodtwo`, params)
 }

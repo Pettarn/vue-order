@@ -22,7 +22,7 @@ export default {
     carousel,
     doubleTable,
     recommend,
-  }
+  },
 };
 </script>
 

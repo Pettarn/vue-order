@@ -51,10 +51,11 @@ export default {
     },
     mounted() {
         getMenu().then(res => {
-            this.list = res.foods.filter(food => {
-                food.price > 1
-            })
-            
+            console.log(res)
+            // console.log(this.$route.query.businessId)
+            // console.log(res.foods[0].businessId)
+            this.list = res.foods
+            console.log(this.list)
         })
     },
 }
