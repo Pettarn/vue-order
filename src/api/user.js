@@ -6,3 +6,6 @@ export const getUser = (params) => {
     return http.fetchPost(`${baseUrl}/login`, params)
 }
 
+export const setUser = (params) => {
+    return http.fetchPost(`${baseUrl}/register`, params)
+}

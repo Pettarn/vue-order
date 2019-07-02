@@ -1,16 +1,16 @@
 <template>
     <div id="business-index">
         <div id="business-index-columnbar">
-            <div id="business-index-columnbar-cell" v-for="item in list" :key="item.id" style="height: 30px">
-                <a id="business-index-columnbar-cell-a" :href="`#${item.id}`">
-                    {{ item.name }}
+            <div id="business-index-columnbar-cell" v-for="item in list" :key="item.typeid" style="height: 30px">
+                <a id="business-index-columnbar-cell-a" :href="`#${item.typeid}`">
+                    {{ item.typeid }}
                 </a>
             </div>
         </div>
         <div id="business-index-goodslist">
-            <div  v-for="item in list" :key="item.id" :id="item.id">
+            <div  v-for="item in list" :key="item.typeid" :id="item.typeid">
                 <div id="business-index-goodslist-cell">{{ item.name }}</div>
-                <div v-for="food in item.foodlist" :key="food.id" ></div>
+                <div>{{ item.Foods }}</div>
             </div>
         </div>
         <div id="business-index-bottom">
@@ -46,18 +46,30 @@ export default {
                     id: 3,
                     name: "爽口凉菜",
                 },
-            ]
+            ],
+            typeList: []
+        }
+    },
+    filters: {
+        getTypeList () {
+
         }
     },
     mounted() {
         getMenu().then(res => {
-            console.log(res)
             // console.log(this.$route.query.businessId)
-            // console.log(res.foods[0].businessId)
-            this.list = res.foods
-            console.log(this.list)
+            this.list = res.foods.filter(element => {
+                return element.businessId == this.$route.query.businessId
+            })
         })
+        
     },
+    created() {
+        for(let i = 0; i < this.list.length; i++) {
+            this.typeList[i] = this.list[i].typeid
+        }
+        console.log(typeList)
+    }
 }
 </script>
 

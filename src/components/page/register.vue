@@ -6,17 +6,35 @@
         </router-link>
         <!-- 用户名，电话号码，密码，收货地址 -->
         <div id="register-form">
-            <input type="text" placeholder="用户名">
-            <input type="text" placeholder="电话号码">
-            <input type="text" placeholder="密码">
-            <input type="text" placeholder="收货地址">
+            <input type="text" placeholder="用户名" v-model="name">
+            <input type="text" placeholder="电话号码" v-model="phone">
+            <input type="text" placeholder="密码" v-model="password">
+            <input type="button" value="注册" @click="register">
         </div>
     </div>
 </template>
 
 <script>
+import {setUser} from '../../api/user'
 export default {
-    
+    data() {
+        return {
+            name: '',
+            password: '',
+            phone: '',
+        }
+    },
+    methods: {
+        register () {
+            let params = {}
+            params.name = this.name
+            params.password = this.password
+            params.phone = this.phone
+            setUser(params).then(res => {
+                console.log('注册成功')
+            })
+        }
+    },
 }
 </script>
 

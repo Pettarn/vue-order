@@ -46,7 +46,7 @@ export default {
     },
     mounted() {
         getBusiness().then(res => {
-            this.list = res.foods
+            this.list = res.business
         })
     },
 }

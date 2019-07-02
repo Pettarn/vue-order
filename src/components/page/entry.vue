@@ -15,7 +15,6 @@
 <script>
 import {getUser} from '../../api/user'
 export default {
-
     data () {
         return {
             userLoginParams: {
@@ -26,15 +25,16 @@ export default {
     },
     methods: {
         login () {
-            let params = this.userLoginParams
+            let params = {}
+            params.name = this.userLoginParams.name
+            params.password = this.userLoginParams.password
+            console.log(params)
             getUser(params).then(res => {
                 console.log(res)
-                // this.$store.commit('ADD_USERINFO', res)
-                // console.log(this.$store.state.userInfo)
                 if(res.success == true) {
                     this.$router.push({ path: '/'})
                 } else {
-
+                    
                 }
             })
         }
