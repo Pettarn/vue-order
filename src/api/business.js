@@ -1,5 +1,5 @@
 import http from './axiosUtils'
-const baseUrl = 'http://10.2.69.168:8080/EleServer_war_exploded'
+const baseUrl = 'http://10.2.69.155:8080/EleServer_war_exploded'
 
 // 商家信息
 export const getBusiness = (params = {}) => {

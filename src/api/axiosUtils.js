@@ -3,7 +3,6 @@ import axios from 'axios'
 import Qs from 'qs'
 
 //设置axios参数
-axios.defaults.baseURL='http://10.2.69.168:8080/EleServer_war_exploded/'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded';
 axios.defaults.timeout = 5000

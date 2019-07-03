@@ -1,8 +1,8 @@
 <template >
-    <div id="order" :style="{height: clientHeight, backgroundColor: 'yellow'}">
-        <div id="order-1">近三个月无外卖订单记录</div>
-        <div id="order-2">
-            <input type="button" value="查看更早订单">
+    <div id="order">
+        <div id="order-head">
+            <div></div>
+            <div></div>
         </div>
     </div>
 </template>
