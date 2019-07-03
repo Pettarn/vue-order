@@ -75,6 +75,10 @@ let routes = [
   {
     path: '/register',
     component: register,
+  },
+  {
+    path: '*',
+    redirect: '/',
   }
 ]
 

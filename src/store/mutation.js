@@ -1,17 +1,20 @@
-import { ADD_USER, ADD_BUSINESS, ADD_BUSINESSID } from './mutationType'
+import { ADD_USER, ADD_BUSINESS, ADD_ISLOGIN } from './mutationType'
 
 export default {
-    // add loginInfo and userInfo in state
+    // add userInfo in state
     [ADD_USER] (state, userInfo) {
         state.userInfo = userInfo
-        state.loginState = userInfo.success
+    },
+    // add loginInfo in state
+    [ADD_ISLOGIN] (state, isLogin) {
+        state.isLogin = isLogin
     },
     // add businessInfo in state
     [ADD_BUSINESS] (state, businessInfo) {
         state.businessInfo = businessInfo
     },
     // add businessId in state
-    [ADD_BUSINESSID] (state, id) {
-        state.businessId = id
-    }
+    // [ADD_BUSINESSID] (state, id) {
+    //     state.businessId = id
+    // }
 }

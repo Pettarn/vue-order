@@ -33,6 +33,7 @@ export default {
                 console.log(res)
                 if(res.success == true) {
                     this.$router.push({ path: '/'})
+                    this.$store.commit('ADD_ISLOGIN', true)
                 }
             })
         }
