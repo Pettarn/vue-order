@@ -33,8 +33,6 @@ export default {
                 console.log(res)
                 if(res.success == true) {
                     this.$router.push({ path: '/'})
-                } else {
-                    
                 }
             })
         }

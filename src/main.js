@@ -9,6 +9,8 @@ window.onresize = () => {
   location.reload()
 }
 
+// Vue.prototype.store = store
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

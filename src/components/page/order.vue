@@ -1,8 +1,17 @@
 <template >
     <div id="order">
         <div id="order-head">
-            <div></div>
-            <div></div>
+            <router-link tag="div" :to="`../../business/businessIndex?businessId=${this.$route.query}`" id="order-head-back">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#iconfanhui"></use>
+                </svg>
+            </router-link>
+            <div>
+                <!-- {{ this.$route.query. }} -->
+            </div>
+        </div>
+        <div>
+
         </div>
     </div>
 </template>
@@ -27,6 +36,13 @@ export default {
 </script>
 
 <style>
+.icon {
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 #order {
     position: relative;
     display: flex;
@@ -34,15 +50,20 @@ export default {
     justify-content: center;
     align-items: center;
 }
-#order-1 {
+#order-head {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background-color: blue;
+}
+#order-head-back {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30px;
-    margin-bottom: 10px;
-}
-#order-2 {
-    height: 30px;
 }
 </style>
 

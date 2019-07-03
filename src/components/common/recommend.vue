@@ -2,9 +2,11 @@
     <div id="recommend">
         <div id="recommend-title">推荐商家</div>
         <div id="recommend-each-business">
-            <router-link v-for="item in list" :key="item.id" :to="{ path: '/business/businessIndex', query: { businessId: item.id } }">
+            <router-link v-for="item in list" :key="item.id" :to="{ path: '/business/', query: { businessId: item.id }}">
                 <div id="recommend-each-business-per">
-                    <div id="recommend-each-business-per-left"></div>
+                    <div id="recommend-each-business-per-left">
+                        <img style="{position: absolute; width: 100%; height: 100%;}" :src="item.imgsrc">
+                    </div>
                     <div id="recommend-each-business-per-right">
                         <div style="font-size: 2.5em;">{{ item.name }}</div>
                         <div style="font-size: 1.5em;">
@@ -44,10 +46,17 @@ export default {
             ]
         }
     },
+    // methods: {
+    //     setCurrentBusinessId(id) {
+    //         this.$store.commit('ADD_BUSINESSID', id)
+    //         console.log(this.$store.state.businessId)
+    //     }
+    // },
     mounted() {
         getBusiness().then(res => {
             this.list = res.business
         })
+        // console.log(this.$store.state.businessId)
     },
 }
 </script>

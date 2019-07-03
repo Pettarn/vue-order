@@ -17,8 +17,6 @@ axios.defaults.transformRequest = [function(data){
 Vue.prototype.axios = axios
 Vue.prototype.qs = Qs
 
-
-
 function fetchGet (url, params = {}) {
     return new Promise((resolve, reject) => {
         axios.get(url, {params}).then(res => {
@@ -31,7 +29,6 @@ function fetchGet (url, params = {}) {
 
 function fetchPost (url, params = {}) {
     return new Promise((resolve, reject) => {
-        
         axios.post(url, params).then(res => {
             resolve(res.data)
         }).catch(err => {
@@ -39,7 +36,6 @@ function fetchPost (url, params = {}) {
         })
     })
 }
-
 export default {
     fetchGet,
     fetchPost

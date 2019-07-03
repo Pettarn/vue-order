@@ -8,12 +8,16 @@
       </router-link>
     </div>
     <div id="business-introduction">
-      <div id="business-introduction-backgroundimage"></div>
+      <div id="business-introduction-backgroundimage">
+        
+      </div>
       <div id="business-introduction-detail">
-        <div id="business-introduction-detail-headpicture"></div>
+        <div id="business-introduction-detail-headpicture">
+          <img style="position: absolute; width: 100%; height: 100%;" :src="imgsrc">
+        </div>
         <div id="business-introduction-detail-discount">
-          <p>111111</p>
-          <p>222222</p>
+          <p>{{ this.$store.state.businessInfo.name }}</p>
+          <p>{{ this.$store.state.businessInfo.adress }}</p>
         </div>
       </div>
     </div>
@@ -28,7 +32,25 @@
 
 <script>
 export default {
-  name: "businessPage"
+  name: "businessPage",
+  data(){
+    return {
+      businessId: this.$route.query.businessId,
+      imgsrc: this.$store.state.businessInfo.imgsrc,
+      businessInfo: null,
+    }
+  },
+  created() {
+    getBusiness().then(res => {
+      res.business.forEach(item => {
+        if(item.id == this.$route.query.businessId) {
+          this.businessInfo = item
+        }
+      })
+      this.$store.commit('ADD_BUSINESS', this.businessInfo)
+    })
+    this.imgsrc = this.businessInfo.imgsrc
+  }
 };
 </script>
 
@@ -68,12 +90,12 @@ export default {
   height: 180px;
   background-color: green;
 }
-/* #business-introduction-backgroundimage {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background-color: blue;
-    } */
+#business-introduction-backgroundimage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: blue;
+}
 #business-introduction-detail {
   position: absolute;
   top: 60px;

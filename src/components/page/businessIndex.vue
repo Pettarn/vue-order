@@ -1,15 +1,7 @@
 <template>
     <div id="business-index">
-        <!-- <div id="business-index-columnbar">
-            <div id="business-index-columnbar-cell" v-for="item in list" :key="item.typeid" style="height: 30px">
-                <a id="business-index-columnbar-cell-a" :href="`#${item.typeid}`">
-                    {{ item.typeid }}
-                </a>
-            </div>
-        </div> -->
         <div id="business-index-goodslist">
             <div  v-for="item in list" :key="item.id" >
-                <!-- <div :id="item.typeid">{{ item.typeid }}</div> -->
                 <div id="business-index-goodslist-cell">
                     <div>
                         <div><img id="business-index-goodslist-cell-img" :src="item.imgsrc"></div>
@@ -24,13 +16,12 @@
                             <use xlink:href="#icontianjia" />
                         </svg>
                     </div>
-                    <!-- <add-icon @click="add(item.price)"></add-icon> -->
                 </div>
             </div>
         </div>
         <div id="business-index-bottom">
             <div id="business-index-bottom-cart">
-                <router-link tag="div" to="../indexPage/order" id="business-index-bottom-cart-icon">
+                <router-link tag="div" to="../../indexPage/order"  id="business-index-bottom-cart-icon">
                     <svg id="cart" aria-hidden="true">
                         <use xlink:href="#icongouwuche" />
                     </svg>
@@ -48,15 +39,11 @@
 
 <script>
 import '../../assets/icon/iconfont'
-// import addIcon from '../common/addIcon'
-import {getMenu} from '../../api/business'
+import {getMenu, getBusiness} from '../../api/business'
 export default {
-    // components: {
-    //     addIcon,
-    // },
     data () {
         return {
-            businessId: '',
+            businessId: this.$route.query.businessId,
             list: [
                 {
                     id: 1,
@@ -80,23 +67,12 @@ export default {
             this.totalValue += price
             this.count++
         },
-        goCart () {
-            this.$router.push({ path: 'cart', query: { count: this.count, totalPrice: this.price } })
-        }
     },
-    mounted() {
+    created () {
         getMenu().then(res => {
-            // console.log(this.$route.query.businessId)
             this.list = res.foods.filter(element => {
                 return element.businessId == this.$route.query.businessId
             })
-            console.log(this.list)
-            // for(let i = 0; i < this.list.length; i++) {
-            //     // console.log(this.list)
-            //     this.typeList[i] = this.list[i].typeid
-            // }
-            // this.typeList = new Set(this.typeList)
-            // console.log(this.typeList)
         })
     },
 }

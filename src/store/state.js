@@ -8,5 +8,5 @@ export default {
     // 商家ID
     businessId: '',
     // 商家信息
-    businessInfo: null,
+    businessInfo: 2,
 }
