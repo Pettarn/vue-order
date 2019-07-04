@@ -8,6 +8,7 @@ import myHome from '../components/page/myHome.vue'
 import businessPage from '../components/page/businessPage.vue'
 import entry from '../components/page/entry.vue'
 import register from '../components/page/register.vue'
+import address from '../components/page/address.vue'
 
 import businessIndex from '../components/page/businessIndex.vue'
 import businessSecond from '../components/page/businessSecond.vue'
@@ -75,6 +76,10 @@ let routes = [
   {
     path: '/register',
     component: register,
+  },
+  {
+    path: '/address',
+    component: address,
   },
   {
     path: '*',

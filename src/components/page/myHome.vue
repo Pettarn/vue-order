@@ -10,7 +10,7 @@
         <div id="my-home-body">
             <div id="my-home-body-avater">
                 <router-link id="my-home-body-avater-name" to="/entry">
-                    <div id="my-home-body-avater-name-font">123</div>
+                    <div id="my-home-body-avater-name-font">{{ username }}</div>
                     <div id="my-home-body-avater-name-message">再忙也要记得吃饭哟~</div>
                 </router-link>
                 <div id="my-home-body-avater-picture"></div>
@@ -35,8 +35,15 @@
                     <div>金币、福利、借钱</div>
                 </div>
             </div>
-            <div id="my-home-body-collection"></div>
-            <div id="my-home-body-setting"></div>
+            <div id="my-home-body-setting">
+                <div></div>
+                <div id="my-home-body-setting-sp">地址管理</div>
+                <router-link to="../../address" tag="div" id="my-home-body-setting-icon">
+                    <svg id="icon" aria-hidden="true">
+                        <use xlink:href="#iconqianjin"></use>
+                    </svg>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -44,6 +51,15 @@
 <script>
 export default {
     name: 'myHome',
+    data () {
+        return {
+            username: '',
+        }
+    },
+    created () {
+        this.username = this.$store.state.userInfo.name
+        console.log(this.username)
+    }
 }
 </script>
 
@@ -54,7 +70,14 @@ export default {
         vertical-align: -0.15em;
         fill: currentColor;
         overflow: hidden;
-    }    
+    }
+    #icon {
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }   
     #my-home-head {
         position: fixed;
         width: 100%;
@@ -163,11 +186,24 @@ export default {
     }
     #my-home-body-setting {
         position: relative;
+        display: grid;
+        grid-template-columns: 10% 70% 20%;
         margin-top: 3px;
+        font-size: 2.5em;
         /* left: 0; */
-        width: 100%;
         height: 100px;
         background-color: yellow;
+    }
+    #my-home-body-setting-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #my-home-body-setting-sp {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
     }
 </style>
 

@@ -31,25 +31,28 @@
 </template>
 
 <script>
+import {getBusiness} from '../../api/business'
 export default {
   name: "businessPage",
   data(){
     return {
       businessId: this.$route.query.businessId,
-      imgsrc: this.$store.state.businessInfo.imgsrc,
+      imgsrc: '',
       businessInfo: null,
     }
   },
   created() {
     getBusiness().then(res => {
       res.business.forEach(item => {
-        if(item.id == this.$route.query.businessId) {
+        if(+item.id === +this.$route.query.businessId) {
           this.businessInfo = item
+          this.imgsrc = this.businessInfo.imgsrc
         }
       })
       this.$store.commit('ADD_BUSINESS', this.businessInfo)
     })
-    this.imgsrc = this.businessInfo.imgsrc
+    
+    // console.log(this.imgsrc)
   }
 };
 </script>

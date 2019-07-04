@@ -28,12 +28,14 @@ export default {
             let params = {}
             params.name = this.userLoginParams.name
             params.password = this.userLoginParams.password
-            console.log(params)
+            // console.log(params)
             getUser(params).then(res => {
-                console.log(res)
+                // console.log(res)
                 if(res.success == true) {
                     this.$router.push({ path: '/'})
                     this.$store.commit('ADD_ISLOGIN', true)
+                    this.$store.commit('ADD_USER', params)
+                    // console.log(this.$store.state.userInfo.name, '123')
                 }
             })
         }
