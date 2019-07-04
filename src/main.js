@@ -11,18 +11,18 @@ window.onresize = () => {
 
 const blackList = ['/indexPage/order']
 
-router.beforeEach((to, from, next) => {
-  if(!store.state.isLogin) {
-    if(blackList.indexOf(to.path) !== -1) {
-      next('/entry')
-    } 
-    else {
-      next()
-    }
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if(!store.state.isLogin) {
+//     if(blackList.indexOf(to.path) !== -1) {
+//       next('/entry')
+//     } 
+//     else {
+//       next()
+//     }
+//   } else {
+//     next()
+//   }
+// })
 
 // Vue.prototype.store = store
 

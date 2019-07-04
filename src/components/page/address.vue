@@ -1,12 +1,15 @@
 <template>
     <div id="address">
         <div id="address-head">
-            <div>
+            <router-link to="/indexPage/myhome" tag="div">
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#iconfanhui"></use>
                 </svg>
-            </div>
+            </router-link>
             <div></div>
+        </div>
+        <div id="address-body">
+            <div v-for="item in addressList" :key="item">{{ item }}</div>
         </div>
     </div>
 </template>

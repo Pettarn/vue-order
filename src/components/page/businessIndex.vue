@@ -21,7 +21,7 @@
         </div>
         <div id="business-index-bottom">
             <div id="business-index-bottom-cart">
-                <router-link tag="div" to="../../indexPage/order"  id="business-index-bottom-cart-icon">
+                <router-link tag="div" :to="{ path: '../../indexPage/order', query: { count: this.count, totalValue: this.totalValue, } }"  id="business-index-bottom-cart-icon">
                     <svg id="cart" aria-hidden="true">
                         <use xlink:href="#icongouwuche" />
                     </svg>

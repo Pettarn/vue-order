@@ -2,7 +2,7 @@
     <div id="businessThird">
         <div id="businessThird-head">
             <div id="businessThird-head-left">
-                <div id="businessThird-head-left-name">粥品香坊</div>
+                <div id="businessThird-head-left-name">{{ businessInfo.name }}</div>
                 <div id="businessThird-head-left-fivestars"># # # # #</div>
             </div>
             <div id="businessThird-head-right">
@@ -54,7 +54,14 @@
 
 <script>
 export default {
-    
+    data () {
+        return {
+            businessInfo: {}
+        }
+    },
+    created () {
+        this.businessInfo = this.$store.state.businessInfo
+    }
 }
 </script>
 

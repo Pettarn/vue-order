@@ -6,12 +6,14 @@
                     <use xlink:href="#iconfanhui"></use>
                 </svg>
             </router-link>
-            <div>
-                <!-- {{ this.$route.query. }} -->
+            <div id="order-head-title">
+                确认订单
             </div>
         </div>
-        <div>
-
+        <div id="order-body">
+            <div id="order-body-address"></div>
+            <div id="order-body-goodslist"></div>
+            <div id="order-body-count"></div>
         </div>
     </div>
 </template>
@@ -45,15 +47,13 @@ export default {
 }
 #order {
     position: relative;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 #order-head {
     position: fixed;
-    display: grid;
-    grid-template-columns: 15% 85%;
     width: 100%;
     height: 50px;
     top: 0;
@@ -61,9 +61,23 @@ export default {
     background-color: blue;
 }
 #order-head-back {
+    position: absolute;
+    height: 100%;
+    left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#order-head-title {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
 }
 </style>
 
