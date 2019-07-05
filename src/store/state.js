@@ -7,4 +7,6 @@ export default {
     cartList: [],
     // 商家信息
     businessInfo: [],
+    // 用户地址
+    userAddress: '',
 }

@@ -58,7 +58,6 @@ export default {
     },
     created () {
         this.username = this.$store.state.userInfo.name
-        console.log(this.username)
     }
 }
 </script>

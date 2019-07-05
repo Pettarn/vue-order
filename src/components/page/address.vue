@@ -9,7 +9,16 @@
             <div></div>
         </div>
         <div id="address-body">
-            <div v-for="item in addressList" :key="item">{{ item }}</div>
+            <!-- <div v-for="item in addressList" :key="item">{{ item }}</div> -->
+            <div id="address-body-list" v-for="item in addressList" :key="item">
+                <div id="address-body-list-left">{{ item }}</div>
+                <div id="address-body-list-right">
+                    <!-- <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icontubiao114"></use>
+                    </svg> -->
+                </div>
+            </div>
+            <!-- <input type="button" @click="changeAddress" value="更改"> -->
         </div>
     </div>
 </template>
@@ -26,8 +35,11 @@ export default {
     created () {
         // this.userId = this.$store.state.
         let params = {}
-        params.userId = this.userId
+        params.customerId = this.$store.state.userInfo.id
+        console.log(this.$store.state.userInfo)
+        // console.log(params.customerId)
         getAddress(params).then(res => {
+            console.log(res.address)    
             this.addressList = res.address
         })
     }
@@ -55,6 +67,10 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#address-body {
+    position: relative;
+    top: 50px;
 }
 </style>
 

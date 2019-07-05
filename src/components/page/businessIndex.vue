@@ -12,6 +12,10 @@
                         </div>
                     </div>
                       <div id="business-index-goodslist-cell-img-addicon">
+                        <svg @click="item.count--; " id="icon" aria-hidden="true">
+                            <use xlink:href="#iconjianshao" />
+                        </svg>
+                        <span>{{ item.count }}</span>  
                         <svg @click="add(item.price)" class="icon" aria-hidden="true">
                             <use xlink:href="#icontianjia" />
                         </svg>
@@ -79,6 +83,20 @@ export default {
 </script>
 
 <style scoped>
+#icon {
+  width: 25px;
+  height: 25px;
+  vertical-align: -0.15em;
+  fill: blue;
+  overflow: hidden;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: -0.15em;
+  fill: blue;
+  overflow: hidden;
+}
 #business-index-goodslist-cell-img-addicon {
     position: absolute;
     display: flex;
@@ -92,13 +110,6 @@ export default {
   vertical-align: -0.15em;
   fill: blue;
   z-index: 100;
-}
-.icon {
-  width: 2em;
-  height: 2em;
-  vertical-align: -0.15em;
-  fill: blue;
-  overflow: hidden;
 }
 #business-index {
     position: relative;
