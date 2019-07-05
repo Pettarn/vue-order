@@ -40,6 +40,7 @@ export default {
                     this.mainAddress = item.adress
                 }
             })
+            // 设置用户当前使用的地址
             this.$store.commit('SET_ADDRESS', this.mainAddress)
             this.$router.push('/')
             console.log(this.$store.state.userAddress)

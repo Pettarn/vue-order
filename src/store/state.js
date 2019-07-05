@@ -9,4 +9,6 @@ export default {
     businessInfo: [],
     // 用户当前地址
     userAddress: '',
+    // 订单信息
+    orderDetail: [],
 }

@@ -13,7 +13,7 @@
                     </div>
                     <div id="business-index-goodslist-cell-right">
                         <div>
-                            <svg id="icon" aria-hidden="true">
+                            <svg @click="decrease(item.id, item.price)" id="icon" aria-hidden="true">
                                 <use xlink:href="#iconjianshao" />
                             </svg>
                         </div>
@@ -21,7 +21,7 @@
                             <span>{{ item.count }}</span>  
                         </div>
                         <div>
-                            <svg @click="add(item.price)" class="icon" aria-hidden="true">
+                            <svg @click="add(item.id, item.price)" class="icon" aria-hidden="true">
                                 <use xlink:href="#icontianjia" />
                             </svg>
                         </div>
@@ -31,7 +31,7 @@
         </div>
         <div id="business-index-bottom">
             <div id="business-index-bottom-cart">
-                <div @click="jump(totalValue)"  id="business-index-bottom-cart-icon">
+                <div @click="jumpToCart()"  id="business-index-bottom-cart-icon">
                     <svg id="cart" aria-hidden="true">
                         <use xlink:href="#icongouwuche" />
                     </svg>
@@ -53,7 +53,6 @@ import {getMenu, getBusiness} from '../../api/business'
 export default {
     data () {
         return {
-            businessId: this.$route.query.businessId,
             list: [
                 {
                     id: 1,
@@ -68,24 +67,41 @@ export default {
                     name: "爽口凉菜",
                 },
             ],
+            orderObj: {},
+            businessId: this.$route.query.businessId || this.$store.state.businessInfo.businessId,
             count: 0,
             totalValue: 0,
         }
     },
     methods: {
-        add (price) {
+        add (id, price) {
             this.totalValue += price
             this.count++
+            this.list.forEach(item => {
+                if(item.id === id) {
+                    item.count++
+                }
+            })
         },
-        jump (value) {
-            this.$store.commit('SET_TOTALVALUE', value)
+        decrease (id, price) {
+            this.totalValue -= price
+            this.count--
+            this.list.forEach(item => {
+                if(item.id === id) {
+                    item.count--
+                }
+            })
+        },
+        jumpToCart () {
+            this.$store.commit('SET_TOTALVALUE', this.totalValue)
+            this.$store.commit('SET_ORDERDETAIL', this.list)
             this.$router.push('/cart')
         }
     },
     created () {
         getMenu().then(res => {
             this.list = res.foods.filter(element => {
-                return element.businessId == this.$route.query.businessId
+                return element.businessId == (this.$route.query.businessId || this.$store.businessInfo.businessId)
             })
         })
     },
