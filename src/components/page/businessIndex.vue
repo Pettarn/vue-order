@@ -3,22 +3,28 @@
         <div id="business-index-goodslist">
             <div  v-for="item in list" :key="item.id" >
                 <div id="business-index-goodslist-cell">
-                    <div>
-                        <div><img id="business-index-goodslist-cell-img" :src="item.imgsrc"></div>
+                    <div id="business-index-goodslist-cell-left">
+                        <div><img id="business-index-goodslist-cell-left-img" :src="item.imgsrc"></div>
                         <div>
                             {{ item.name }}
                             <div>月售40份  好评率99%</div>
                             <div style="margin: 20px 0;">￥{{ item.price }}</div>
                         </div>
                     </div>
-                      <div id="business-index-goodslist-cell-img-addicon">
-                        <svg @click="item.count--" id="icon" aria-hidden="true">
-                            <use xlink:href="#iconjianshao" />
-                        </svg>
-                        <span>{{ item.count }}</span>  
-                        <svg @click="add(item.price)" class="icon" aria-hidden="true">
-                            <use xlink:href="#icontianjia" />
-                        </svg>
+                    <div id="business-index-goodslist-cell-right">
+                        <div>
+                            <svg id="icon" aria-hidden="true">
+                                <use xlink:href="#iconjianshao" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span>{{ item.count }}</span>  
+                        </div>
+                        <div>
+                            <svg @click="add(item.price)" class="icon" aria-hidden="true">
+                                <use xlink:href="#icontianjia" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,8 +101,8 @@ export default {
   overflow: hidden;
 }
 .icon {
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
   vertical-align: -0.15em;
   fill: blue;
   overflow: hidden;
@@ -139,26 +145,26 @@ export default {
     overflow: hidden;
     border: solid;
 }
-#business-index-columnbar-cell-a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: #000;
-}
+
 #business-index-goodslist-cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 75% 25%;
     padding: 5px;
 }
-#business-index-goodslist-cell>div {
+#business-index-goodslist-cell-left {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 35% 65%;
     height: 100px;
     overflow: hidden;
+}
+#business-index-goodslist-cell-right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+#business-index-goodslist-cell-right>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #business-index-bottom {
     position: fixed;
@@ -208,7 +214,7 @@ export default {
     border-radius: 16px;
     background-color: rgb(211, 24, 24);
 }
-#business-index-goodslist-cell-img {
+#business-index-goodslist-cell-left-img {
     width: 100%;
     height: 100%;
 }
