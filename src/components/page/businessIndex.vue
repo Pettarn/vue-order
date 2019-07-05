@@ -12,7 +12,7 @@
                         </div>
                     </div>
                       <div id="business-index-goodslist-cell-img-addicon">
-                        <svg @click="item.count--; " id="icon" aria-hidden="true">
+                        <svg @click="item.count--" id="icon" aria-hidden="true">
                             <use xlink:href="#iconjianshao" />
                         </svg>
                         <span>{{ item.count }}</span>  
@@ -25,11 +25,11 @@
         </div>
         <div id="business-index-bottom">
             <div id="business-index-bottom-cart">
-                <router-link tag="div" :to="{ path: '../../indexPage/order', query: { count: this.count, totalValue: this.totalValue, } }"  id="business-index-bottom-cart-icon">
+                <div @click="jump(totalValue)"  id="business-index-bottom-cart-icon">
                     <svg id="cart" aria-hidden="true">
                         <use xlink:href="#icongouwuche" />
                     </svg>
-                </router-link>
+                </div>
                 <div id="business-index-bottom-cart-numb">{{ count }}</div>
             </div>
             <div id="business-index-bottom-count">
@@ -71,6 +71,10 @@ export default {
             this.totalValue += price
             this.count++
         },
+        jump (value) {
+            this.$store.commit('SET_TOTALVALUE', value)
+            this.$router.push('/cart')
+        }
     },
     created () {
         getMenu().then(res => {

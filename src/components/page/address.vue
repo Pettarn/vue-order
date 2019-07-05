@@ -11,11 +11,11 @@
         <div id="address-body">
             <!-- <div v-for="item in addressList" :key="item">{{ item }}</div> -->
             <div id="address-body-list" v-for="item in addressList" :key="item">
-                <div id="address-body-list-left">{{ item }}</div>
+                <div id="address-body-list-left">{{ item.adress }}</div>
                 <div id="address-body-list-right">
-                    <!-- <svg class="icon" aria-hidden="true">
+                    <svg class="collect" @click="setMainAddress(item.id)" aria-hidden="true">
                         <use xlink:href="#icontubiao114"></use>
-                    </svg> -->
+                    </svg>
                 </div>
             </div>
             <!-- <input type="button" @click="changeAddress" value="更改"> -->
@@ -29,7 +29,20 @@ export default {
     data() {
         return {
             userId: '',
-            addressList: []
+            addressList: [],
+            mainAddress: null,
+        }
+    },
+    methods: {
+        setMainAddress (id) {
+            this.addressList.forEach(item => {
+                if(item.id == id) {
+                    this.mainAddress = item.adress
+                }
+            })
+            this.$store.commit('SET_ADDRESS', this.mainAddress)
+            this.$router.push('/')
+            console.log(this.$store.state.userAddress)
         }
     },
     created () {
@@ -54,6 +67,13 @@ export default {
   fill: currentColor;
   overflow: hidden;
 }
+.collect {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 
 #address-head {
     position: fixed;
@@ -71,6 +91,19 @@ export default {
 #address-body {
     position: relative;
     top: 50px;
+}
+#address-body-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    height: 50px;
+    font-size: 2em;
+    background-color: #a59e9e;
+}
+#address-body-list>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>
 

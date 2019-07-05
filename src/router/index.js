@@ -9,6 +9,7 @@ import businessPage from '../components/page/businessPage.vue'
 import entry from '../components/page/entry.vue'
 import register from '../components/page/register.vue'
 import address from '../components/page/address.vue'
+import cart from '../components/page/cart.vue'
 
 import businessIndex from '../components/page/businessIndex.vue'
 import businessSecond from '../components/page/businessSecond.vue'
@@ -37,7 +38,6 @@ let routes = [
       },
       {
         path: 'order',
-        name: 'order',
         component: order,
       },
       {
@@ -82,9 +82,13 @@ let routes = [
     component: address,
   },
   {
-    path: '*',
-    redirect: '/',
+    path: '/cart',
+    component: cart,
   }
+  // {
+  //   path: '*',
+  //   redirect: '/',
+  // }
 ]
 
 let router = new Router({

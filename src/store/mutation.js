@@ -1,4 +1,4 @@
-import { ADD_USER, ADD_BUSINESS, ADD_ISLOGIN, SET_ADDRESS } from './mutationType'
+import { ADD_USER, ADD_BUSINESS, ADD_ISLOGIN, SET_ADDRESS, SET_TOTALVALUE } from './mutationType'
 
 export default {
     // add userInfo in state
@@ -16,5 +16,9 @@ export default {
     // set userAddress in state
     [SET_ADDRESS] (state, address) {
         state.userAddress = address
+    },
+    // set totalValue in state
+    [SET_TOTALVALUE] (state, value) {
+        state.totalValue = value
     }
 }

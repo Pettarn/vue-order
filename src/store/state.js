@@ -3,10 +3,10 @@ export default {
     isLogin: 0,
     // 用户信息
     userInfo: null,
-    // 购物车列表
-    cartList: [],
+    // 账单总价
+    totalValue: null,
     // 商家信息
     businessInfo: [],
-    // 用户地址
+    // 用户当前地址
     userAddress: '',
 }

@@ -29,9 +29,10 @@ export default {
             let params = {}
             params.name = this.name
             params.password = this.password
-            params.phone = this.phone
+            params.tell = this.phone
             setUser(params).then(res => {
                 console.log('注册成功')
+                this.$router.push('/entry')
             })
         }
     },
