@@ -29,9 +29,9 @@ export default {
 <style scoped>
 #home-page-container {
     position: relative;
-    top: 60px;
+    top: 50px;
     width: 100%;
-    background-color: yellow;
+    background-color: #ffffff;
 }
 </style>
 

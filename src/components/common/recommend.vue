@@ -10,7 +10,7 @@
                     <div id="recommend-each-business-per-right">
                         <div style="font-size: 2.5em;">{{ item.name }}</div>
                         <div style="font-size: 1.5em;">
-                            <span style="color: red;">#4.7</span>
+                            <span style="color: #ff6300;">#4.7</span>
                             <span>月售2008</span>
                         </div>
                         <div id="recommend-each-business-per-right-sp">
@@ -68,18 +68,19 @@ export default {
 #recommend {
     position: relative;
     width: 100%;
-    background-color: blue;
+    background-color: #ffffff;
 }
 #recommend-title {
+    font-weight: bold;
     position: relative;
     font-size: 30px;
-    color: yellow;
-    margin-left: 100px;
+    color: #333333;
+    padding-left: 20px;
 }
 #recommend-each-business {
     position: relative;
     width: 100%;
-    background-color: #f00;
+    /* background-color: #ff6300; */
     margin-bottom: 70px;
 }
 #recommend-each-business-per {
@@ -88,7 +89,7 @@ export default {
     grid-template: 1fr / 25% 75%;
     width: 100%;
     height: 100px;
-    background-color: grey;
+    background-color: #ffffff;
 }
 #recommend-each-business-per>div {
     border: solid;
