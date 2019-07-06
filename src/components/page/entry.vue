@@ -1,13 +1,20 @@
 <template>
     <div id="entry">
         <div id="entry-head">
-            <router-link id="entry-head-back" to="/indexPage/myhome">返回</router-link>
-            <router-link id="entry-head-register" to="/register" tag="div">新用户注册</router-link>
+            <router-link id="entry-head-back" tag="div" to="/indexPage/myhome">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#iconfanhui"></use>
+                </svg>
+            </router-link>
+            <div></div>
+            <router-link id="entry-head-register" to="/register" tag="div">注册</router-link>
         </div>
         <div id="entry-body">
             <input id="entry-body-form-account" v-model="userLoginParams.name" type="text" placeholder="账号"><br>
             <input id="entry-body-form-password" v-model="userLoginParams.password" type="text" placeholder="密码"><br>
-            <input id="entry-body-form-submit" @click="login()" type="button" value="登录">
+            <div id="entry-body-form-login">
+                <input id="entry-body-form-submit" @click="login()" type="button" value="登录">
+            </div>
         </div>
     </div>
 </template>
@@ -45,53 +52,80 @@ export default {
 </script>
 
 <style scoped>
+* {
+    box-sizing: border-box;
+}
+.icon {
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.15em;
+  fill: rgb(255, 255, 255);
+  overflow: hidden;
+}
 #entry {
     position: relative;
     width: 100%;
 }
 #entry-head {
-    position: relative;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 10% 70% 20%;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 40px;
-    background-color: blue;
+    height: 70px;
+    background: linear-gradient(90deg, #00a8ff, #0085fe);
 }
 #entry-head-back {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50px;
     height: 100%;
-    background-color: yellow;
 }
 #entry-head-register {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 5px;
-    top: 0%;
     height: 100%;
     font-size: 2em;
+    color: #ffffff;
 }
-#entry-body-headbar {
+/* #entry-body-headbar {
     position: relative;
     width: 100%;
+} */
+#entry-body {
+    position: relative;
+    top: 80px;
+    background-color: #f5f5f5;
 }
 #entry-body-form-account {
     width: 100%;
     height: 50px;
     font-size: 30px;
+    padding-left: 10px;
 }
 #entry-body-form-password {
     width: 100%;
     height: 50px;
     font-size: 30px;
+    padding-left: 10px;
+}
+#entry-body-form-login {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #entry-body-form-submit {
-    width: 100%;
-    height: 40px;
-    background-color: rgb(36, 214, 36);
+    margin-top: 10px;
+    width: 99%;
+    height: 55px;
+    border-radius: 5px;
+    background-color: #4dc160;
+    color: #ffffff;
+    font-size: 2em;
 }
 </style>
 

@@ -2,8 +2,6 @@
   <div id="home-page">
     <search-box></search-box>
     <div id="home-page-container">
-      <!-- <carousel></carousel>
-      <double-table></double-table> -->
       <recommend></recommend>
     </div>
   </div>

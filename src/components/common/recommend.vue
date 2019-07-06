@@ -2,7 +2,7 @@
     <div id="recommend">
         <div id="recommend-title">推荐商家</div>
         <div id="recommend-each-business">
-            <router-link v-for="item in list" :key="item.id" :to="{ path: '/business/', query: { businessId: item.id }}">
+            <router-link id="sp" tag="div" v-for="item in list" :key="item.id" :to="{ path: '/business/', query: { businessId: item.id }}">
                 <div id="recommend-each-business-per">
                     <div id="recommend-each-business-per-left">
                         <img style="{position: absolute; width: 100%; height: 100%;}" :src="item.imgsrc">
@@ -91,14 +91,18 @@ export default {
     height: 100px;
     background-color: #ffffff;
 }
-#recommend-each-business-per>div {
+/* #recommend-each-business-per>div {
     border: solid;
-}
+} */
 #recommend-each-business-per-right-sp {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     /* align-items: center; */
+}
+#sp {
+    margin: 10px 0;
+    box-shadow:  3px 2px 10px rgb(165, 165, 165);
 }
 </style>
 
