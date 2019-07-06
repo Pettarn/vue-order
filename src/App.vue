@@ -21,6 +21,8 @@ export default {
   background-color: #000 !important;
 } */
 
+
+
 #app {
   position: relative;
   /* width: 100%; */
