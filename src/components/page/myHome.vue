@@ -151,11 +151,12 @@ export default {
     }
     #my-home-body-finance>div {
         box-shadow: 3px 2px 10px rgb(223, 216, 216);
+        height: 100px;
     }
     #my-home-body-finance-red-bag {
         position: absolute;
         display: grid;
-        grid-template: repeat(2, 1fr) / 70% 30%;
+        grid-template: 40% 60% / 70% 30%;
         left: 3%;
         width: 46%;
         height: 100px;
@@ -170,7 +171,7 @@ export default {
     #my-home-body-finance-money-bag {
         position: absolute;
         display: grid;
-        grid-template: repeat(2, 1fr) / 70% 30%;
+        grid-template: 40% 60% / 70% 30%;
         right: 3%;
         width: 46%;
         height: 100px;
@@ -194,9 +195,9 @@ export default {
         position: relative;
         display: grid;
         grid-template-columns: 10% 70% 20%;
-        font-size: 2.5em;
+        font-size: 2em;
         /* left: 0; */
-        height: 100px;
+        height: 70px;
         background-color: #ffffff;
         box-shadow:  3px 2px 10px rgb(223, 216, 216);
     }

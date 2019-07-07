@@ -5,7 +5,7 @@
                 <div id="business-index-goodslist-cell">
                     <div id="business-index-goodslist-cell-left">
                         <div><img id="business-index-goodslist-cell-left-img" :src="item.imgsrc"></div>
-                        <div>
+                        <div style="padding-left: 5px;">
                             {{ item.name }}
                             <div>月售40份  好评率99%</div>
                             <div style="margin: 20px 0;">￥{{ item.price }}</div>
@@ -18,7 +18,7 @@
                             </svg>
                         </div>
                         <div>
-                            <span>{{ item.count }}</span>  
+                            <span>{{ item.count || 0 }}</span>  
                         </div>
                         <div>
                             <svg @click="add(item.id, item.price)" class="icon" aria-hidden="true">
@@ -150,7 +150,6 @@ export default {
 }
 #business-index-goodslist {
     position: relative;
-    border: solid #000;
     margin-bottom: 60px;
 }
 #business-index-columnbar-cell {
@@ -159,13 +158,12 @@ export default {
     align-items: center;
     height: 30px;
     overflow: hidden;
-    border: solid;
 }
-
 #business-index-goodslist-cell {
     display: grid;
     grid-template-columns: 75% 25%;
     padding: 5px;
+    background-color: #fff;
 }
 #business-index-goodslist-cell-left {
     display: grid;
@@ -190,7 +188,8 @@ export default {
     width: 100%;
     bottom: 0;
     left: 0;
-    background-color: rgb(36, 148, 201);
+    background-color: #141c27;
+    color: #8f9297;
 }
 #business-index-bottom-cart-icon {
     position: absolute;

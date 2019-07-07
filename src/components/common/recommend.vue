@@ -91,6 +91,12 @@ export default {
     height: 100px;
     background-color: #ffffff;
 }
+#recommend-each-business-per-right {
+    display: grid;
+    grid-template-rows: 40% 30% 30%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
 /* #recommend-each-business-per>div {
     border: solid;
 } */

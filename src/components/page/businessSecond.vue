@@ -66,7 +66,7 @@ export default {
     justify-content: center;
     width: 100%;
     height: 120px;
-    background-color: rgb(219, 30, 30);
+    background-color: #ffffff;
 }
 #businessSecond-score-overall {
     display: flex;
@@ -82,7 +82,7 @@ export default {
     grid-template: 1fr 1fr 1fr / 1fr 2.2fr;
     width: 60%;
     height: 80%;
-    background-color: rgb(29, 6, 163);
+    background-color: #ffffff;
 }
 #businessSecond-score-overall-count {
     font-size: 45px;
@@ -94,7 +94,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid;
 }
 #businessSecond-comment {
     position: relative;
