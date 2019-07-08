@@ -1,7 +1,8 @@
 <template >
     <div id="order">
         <div id="order-head">
-            <router-link tag="div" :to="`../../business/businessIndex?businessId=${this.$route.query}`" id="order-head-back">
+            <!-- <router-link tag="div" :to="`../../business/businessIndex?businessId=${this.$route.query}`" id="order-head-back"> -->
+            <router-link tag="div" :to="{ path: '../../business/businessIndex', query: { businessId: this.$store.state.businessInfo.id } }" id="order-head-back">
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#iconfanhui"></use>
                 </svg>
@@ -42,7 +43,10 @@ export default {
         }
     },
     created() {
-        console.log(this.$store.state.address)
+        console.log(this.$store.state.userAddress)
+        console.log(this.$store.state.orderDetail)
+        console.log(this.$store.state.totalValue)
+        
     },
 }
 </script>

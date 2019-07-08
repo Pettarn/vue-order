@@ -5,6 +5,8 @@ export default {
     userInfo: null,
     // 账单总价
     totalValue: null,
+    // 账单总量
+    totalCount: null,
     // 商家信息
     businessInfo: [],
     // 用户当前地址

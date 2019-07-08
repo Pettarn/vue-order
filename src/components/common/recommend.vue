@@ -3,6 +3,7 @@
         <div id="recommend-title">推荐商家</div>
         <div id="recommend-each-business">
             <router-link id="sp" tag="div" v-for="item in list" :key="item.id" :to="{ path: '/business/', query: { businessId: item.id }}">
+            <!-- <router-link id="sp" tag="div" v-for="item in list" :key="item.id" to="/business/"> -->
                 <div id="recommend-each-business-per">
                     <div id="recommend-each-business-per-left">
                         <img style="{position: absolute; width: 100%; height: 100%;}" :src="item.imgsrc">
@@ -27,6 +28,7 @@
 
 <script>
 import {getBusiness} from '../../api/business'
+
 export default {
     data () {
         return {
@@ -46,15 +48,12 @@ export default {
             ]
         }
     },
-    // methods: {
-    //     setCurrentBusinessId(id) {
-    //         this.$store.commit('ADD_BUSINESSID', id)
-    //         console.log(this.$store.state.businessId)
-    //     }
-    // },
-    mounted() {
+    methods: {
+    },
+    created() {
         getBusiness().then(res => {
             this.list = res.business
+            console.log(this.list)
         })
         // console.log(this.$store.state.businessId)
     },

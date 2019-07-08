@@ -36,12 +36,12 @@
                         <use xlink:href="#icongouwuche" />
                     </svg>
                 </div>
-                <div id="business-index-bottom-cart-numb">{{ count }}</div>
+                <div id="business-index-bottom-cart-numb">{{ totalCount }}</div>
             </div>
             <div id="business-index-bottom-count">
-                <div>{{ count }}</div>
+                <div>{{ totalCount }}</div>
                 <div></div>
-                <div>{{ totalValue }}￥</div>
+                <div>{{ totalValue | capitalize }}￥</div>
             </div>
         </div>
     </div>
@@ -69,14 +69,16 @@ export default {
             ],
             orderObj: {},
             businessId: this.$route.query.businessId || this.$store.state.businessInfo.businessId,
-            count: 0,
-            totalValue: 0,
+            // 如果store里面存的值为空那么初始化为0
+            totalCount: this.$store.state.totalCount || 0,
+            // 如果store里面存的值为空那么初始化为0
+            totalValue: parseInt(this.$store.state.totalValue) || 0,
         }
     },
     methods: {
         add (id, price) {
             this.totalValue += price
-            this.count++
+            this.totalCount++
             this.list.forEach(item => {
                 if(item.id === id) {
                     item.count++
@@ -85,7 +87,7 @@ export default {
         },
         decrease (id, price) {
             this.totalValue -= price
-            this.count--
+            this.totalCount--
             this.list.forEach(item => {
                 if(item.id === id) {
                     item.count--
@@ -93,17 +95,30 @@ export default {
             })
         },
         jumpToCart () {
-            this.$store.commit('SET_TOTALVALUE', this.totalValue)
+            this.$store.commit('SET_TOTALVALUE', this.totalValue.toFixed(2))
             this.$store.commit('SET_ORDERDETAIL', this.list)
+            this.$store.commit('SET_TOTALCOUNT', this.totalCount)
             this.$router.push('/cart')
+        }
+    },
+    filters: {
+        capitalize (value) {
+            return value.toFixed(2)
         }
     },
     created () {
         getMenu().then(res => {
-            this.list = res.foods.filter(element => {
-                return element.businessId == (this.$route.query.businessId || this.$store.businessInfo.businessId)
-            })
+            // if((this.list)&&(this.list[0].businessId === this.$store.state.orderDetail[0].businessId)) {
+            //     this.list = this.$store.state.orderDetail
+            // } 
+            // else {
+                this.list = res.foods.filter(element => {
+                    return element.businessId == (this.$route.query.businessId || this.$store.state.businessInfo.id)
+                })
+                console.log(this.$store.state.orderDetail[0])
+            // }
         })
+        
     },
 }
 </script>
@@ -150,6 +165,7 @@ export default {
 }
 #business-index-goodslist {
     position: relative;
+    margin-top: 10px;
     margin-bottom: 60px;
 }
 #business-index-columnbar-cell {

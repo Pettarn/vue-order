@@ -37,7 +37,7 @@ function fetchPost (url, params = {}) {
     })
 }
 
-const baseUrl = 'http://10.2.69.142:8080/EleServer_war_exploded'
+const baseUrl = 'http://192.168.43.32:8080/EleServer_war_exploded'
 
 export default {
     fetchGet,

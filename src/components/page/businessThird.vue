@@ -69,6 +69,7 @@ export default {
 #businessThird {
     position: relative;
     width: 100%;
+    margin-top: 10px;
 }
 #businessThird-head {
     position: relative;
@@ -76,10 +77,7 @@ export default {
     grid-template: 1fr / 80% 20%;
     width: 100%;
     height: 80px;
-    background-color: rgb(51, 185, 34);
-}
-#businessThird-head>div {
-    border: solid;
+    background-color: #ffffff;
 }
 #businessThird-head-left {
     position: relative;
@@ -105,12 +103,14 @@ export default {
     width: 100%;
     height: 80px;
 }
+#businessThird-specific span {
+    color: #ff6100;
+}
 #businessThird-specific>div {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid;
 }
 #businessThird-notice {
     position: relative;
@@ -118,12 +118,14 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: rgb(171, 223, 50);
+    background-color: #ffffff;
 }
 #businessThird-notice-container {
     position: relative;
-    width: 96%;
-    background-color: rgb(135, 139, 177);
+    width: 100%;
+    background-color: #ff6100;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 #businessThird-notice-container-title {
     font-size: 25px;
@@ -133,9 +135,7 @@ export default {
     position: relative;
     padding: 10px;
 }
-#businessThird-notice-container-text>div {
-    border: solid .5px;
-}
+
 #businessThird-notice-container-text-activity {
     padding: 5px;
 }

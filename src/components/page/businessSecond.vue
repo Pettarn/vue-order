@@ -20,14 +20,14 @@
                 <div id="businessSecond-comment-class-good">满意</div>
                 <div id="businessSecond-comment-class-bad">不满意</div>
             </div>
-            <div id="businessSecond-comment-check">
+            <!-- <div id="businessSecond-comment-check">
                 <div>
                     《》
                 </div>
                 <div>
                     只看有内容的评价
                 </div>
-            </div>
+            </div> -->
             <div id="businessSecond-comment-list">
                 <div id="businessSecond-comment-list-cell">
                     <div id="left">
@@ -64,6 +64,7 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
     width: 100%;
     height: 120px;
     background-color: #ffffff;
@@ -75,7 +76,9 @@ export default {
     align-items: center;
     width: 40%;
     height: 80%;
-    background-color: rgba(14, 187, 120, 0.61);
+    
+    color: #ff6100;
+    background-color: #ffffff;
 }
 #businessSecond-score-detail {
     display: grid;
@@ -103,18 +106,18 @@ export default {
 #businessSecond-comment-class {
     position: relative;
     display: grid;
-    grid-template: 1fr / repeat(7, 1fr);
+    grid-template: 1fr / repeat(6, 1fr);
     grid-gap: 10px;
     height: 60px;
     padding-left: 10px;
-    background-color: grey;
+    background-color: #ffffff;
 }
 #businessSecond-comment-class>div {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
-    margin: 10px 0;
+    background-color: #ebf5ff;
+    margin: 15px 0;
 }
 #businessSecond-comment-check {
     position: relative;
@@ -130,14 +133,12 @@ export default {
     width: 100%;
     height: 120px;
 }
-#businessSecond-comment-list-cell>div {
-    border: solid;
-}
 #left {
     position: relative;
     display: flex;
     justify-content: center;
     padding-top: 10px;
+    background-color: #fff;
 }
 #businessSecond-comment-list-cell-userimage {
     position: relative;
@@ -150,7 +151,7 @@ export default {
     position: relative;
     display: grid;
     grid-template: 20% 80% / 1fr;
-    background-color: pink;
+    background-color: #ffffff;
     padding: 6px;
 }
 #businessSecond-comment-list-cell-time {

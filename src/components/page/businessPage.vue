@@ -10,12 +10,12 @@
     <div id="business-introduction">
       <!-- 商家介绍的背景图片 -->
       <div id="business-introduction-backgroundimage">
-        <img id="business-introduction-backgroundimage-hidden" src="http://pic.baike.soso.com/ugc/baikepic2/6150/cut-20181029112521-659563047_jpg_437_349_35847.jpg/300">
+        <img id="business-introduction-backgroundimage-hidden" :src="this.imgsrc">
       </div>
       <div id="business-introduction-detail">
         <div id="business-introduction-detail-headpicture">
           
-          <img style="position: absolute; width: 100%; height: 100%;" src="http://pic.baike.soso.com/ugc/baikepic2/6150/cut-20181029112521-659563047_jpg_437_349_35847.jpg/300">
+          <img style="position: absolute; width: 100%; height: 100%;" :src="this.imgsrc">
         </div>
         <div id="business-introduction-detail-discount">
           <p>{{ this.$store.state.businessInfo.name }}</p>
@@ -38,8 +38,8 @@ export default {
   name: "businessPage",
   data(){
     return {
-      businessId: this.$route.query.businessId,
-      imgsrc: '',
+      businessId: this.$route.query.businessId || this.$store.state.businessInfo.id,
+      imgsrc: this.$store.state.businessInfo.imgsrc,
       businessInfo: null,
     }
   },
@@ -52,6 +52,7 @@ export default {
         }
       })
       this.$store.commit('ADD_BUSINESS', this.businessInfo)
+      console.log(this.$store.state.businessInfo)
     })
     
     // console.log(this.imgsrc)
@@ -126,7 +127,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   height: 80px;
-  background-color: blue;
+  color: #ffffff;
 }
 #business-headbar {
   position: relative;
@@ -134,24 +135,33 @@ export default {
   grid-template: 1fr / repeat(3, 1fr);
   height: 60px;
   width: 100%;
+  background-color: #ffffff;
 }
 #business-headbar > div {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
 }
-.router-link-exact-active {
+/* .router-link-exact-active {
   color: red;
-  /* background: linear-gradient(45deg, #ffffff, #ebdede); */
+  background: linear-gradient(45deg, #ffffff, #ebdede);
+} */
+.router-link-exact-active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 5px;
+  background-color: #2295ff;
 }
 #business-introduction-backgroundimage-hidden {
   width: 100%;
   height: 100%;
   /* opacity: 0.3; */
-}
-#business-introduction-detail-headpicture {
-  
 }
 </style>
 
