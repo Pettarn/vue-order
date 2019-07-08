@@ -43,17 +43,14 @@ export default {
             // 设置用户当前使用的地址
             this.$store.commit('SET_ADDRESS', this.mainAddress)
             this.$router.push('/')
-            console.log(this.$store.state.userAddress)
         }
     },
     created () {
         // this.userId = this.$store.state.
         let params = {}
         params.customerId = this.$store.state.userInfo.id
-        console.log(this.$store.state.userInfo)
         // console.log(params.customerId)
         getAddress(params).then(res => {
-            console.log(res.address)    
             this.addressList = res.address
         })
     }

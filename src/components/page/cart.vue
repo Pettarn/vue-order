@@ -33,8 +33,13 @@ export default {
     methods: {
         purchase () {
             alert('已付款')
-            // console.log('已付款')
-            this.$store.commit('SET_ORDERLIST', this.orderDetail)
+            let params = {}
+            let t = new Date()
+            let str = `${t.getFullYear()}/${t.getMonth()+1}/${t.getDate()}`
+            params.time = str
+            params.totalPrice = this.totalValue
+            params.state = '未送达'
+            this.$store.commit('SET_ORDERLIST', params)
         }
     },
     data () {
@@ -52,7 +57,6 @@ export default {
         }
     },
     created() {
-        console.log(this.$store.state.orderDetail)
         
     },
 }

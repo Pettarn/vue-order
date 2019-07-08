@@ -53,6 +53,15 @@ export default {
       })
       this.$store.commit('ADD_BUSINESS', this.businessInfo)
     })
+    // // 获取到用户的历史订单
+    // let params = {} 
+    // console.log(this.$store.state.userInfo)
+    // // params.customerId = this.$store.state.userInfo.id
+    // params.customerId = 1
+    // getOrderList(params).then(res => {
+    //     console.log(res.success[1])
+    //     this.orderList = this.$store.state.orderList || res.success[1]
+    // })
     
     // console.log(this.imgsrc)
   }

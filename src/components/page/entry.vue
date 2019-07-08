@@ -20,14 +20,15 @@
 </template>
 
 <script>
-import {getUser} from '../../api/user'
+import {getUser, getOrderList} from '../../api/user'
 export default {
     data () {
         return {
             userLoginParams: {
                 name: '',
                 password: ''
-            }
+            },
+            orderList: [],
         }
     },
     methods: {
@@ -44,6 +45,16 @@ export default {
                     this.$store.commit('ADD_ISLOGIN', true)
                     this.$store.commit('ADD_USER', res.success[1])
                     // console.log(this.$store.state.userInfo.id)
+
+                    // 存该用户的历史订单
+                    let param = {} 
+                    param.customerId = this.$store.state.userInfo.id
+                    getOrderList(param).then(res => {
+                        this.orderList = this.$store.state.orderList || res.success[1]
+                        res.success[1].forEach(item => {
+                            this.$store.commit('SET_ORDERLIST', item)
+                        })
+                    })
                 }
             })
         }

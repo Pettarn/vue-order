@@ -7,11 +7,11 @@
             </div>
             <div id="businessSecond-score-detail">
                 <div>服务态度</div>
-                <div></div>
+                <div id="odd">4.1</div>
                 <div>商品评分</div>
-                <div></div>
+                <div id="odd">4.2</div>
                 <div>送达时间</div>
-                <div></div>
+                <div id="odd">4.3</div>
             </div>
         </div>
         <div id="businessSecond-comment">
@@ -29,18 +29,18 @@
                 </div>
             </div> -->
             <div id="businessSecond-comment-list">
-                <div id="businessSecond-comment-list-cell">
+                <div id="businessSecond-comment-list-cell" v-for="item in commentsList" :key="item.id">
                     <div id="left">
                         <div id="businessSecond-comment-list-cell-userimage"></div>
                     </div>
                     <div id="right">
                         <div id="right-top">
-                            <div id="businessSecond-comment-list-cell-phone">123123</div>
-                            <div id="businessSecond-comment-list-cell-time">2016-07-23 21:52</div>
+                            <div id="businessSecond-comment-list-cell-phone">{{ item.tell | capitalize }}</div>
+                            <div id="businessSecond-comment-list-cell-time"></div>
                         </div>
                         <div id="right-bottom">
                             <div id="businessSecond-comment-list-cell-fivestars"></div>
-                            <div id="businessSecond-comment-list-cell-comment"></div>
+                            <div id="businessSecond-comment-list-cell-comment">{{ item.content }}</div>
                             <div id="businessSecond-comment-list-cell-labels"></div>
                         </div>
                     </div>
@@ -53,11 +53,28 @@
 <script>
 import {getComments} from '../../api/business'
 export default {
-    
+    data () {
+        return {
+            commentsList: []
+        }
+    },
+    created () {
+        getComments().then(res => {
+            this.commentsList = res.comments
+        })
+    },
+    filters: {
+        capitalize (value) {
+            return value.replace(/(^\d{3})(.*?)(\d{4}$)/, "$1****$3")
+        }
+    }
 }
 </script>
 
 <style scoped>
+#odd {
+    color: red;
+}
 #businessSecond-score {
     min-width: 371.33px;
     position: relative;

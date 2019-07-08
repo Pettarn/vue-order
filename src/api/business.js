@@ -13,5 +13,5 @@ export const getMenu = (params = {}) => {
 
 // 商家的评价
 export const getComments = (params = {}) => {
-    return http.fetchPost(`${baseUrl}/showTypeComments`, params)
+    return http.fetchPost(`${http.baseUrl}/showTypeComments`, params)
 }

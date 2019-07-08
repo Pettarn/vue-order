@@ -9,8 +9,8 @@
                 <div>
                     <span>商家一</span><span>{{ item.state }}</span>
                 </div>
-                <div>{{ item.time }}</div>
-                <div>{{ item.totalPrice }}</div>
+                <div>订单时间：{{ item.time }}</div>
+                <div>订单总价：{{ item.totalPrice }}</div>
                 <hr>
             </div>
         </div>
@@ -18,23 +18,13 @@
 </template>
 
 <script>
-import {getOrderList} from '../../api/user'
+
 export default {
     data () {
         return {
             orderList: this.$store.state.orderList
         }
     },
-    created () {
-        let params = {} 
-        console.log(this.$store.state.userInfo)
-        // params.customerId = this.$store.state.userInfo.id
-        params.customerId = 1
-        getOrderList(params).then(res => {
-            console.log(res.success[1])
-            this.orderList = res.success[1]
-        })
-    }
 }
 </script>
 
@@ -56,6 +46,7 @@ export default {
     position: relative;
     top: 80px;
     background-color: #fff;
+    margin-bottom: 70px;
 }
 </style>
 

@@ -109,7 +109,6 @@ export default {
         getMenu().then(res => {
             if(this.list && this.$store.state.orderDetail.length) {
                 this.list = this.$store.state.orderDetail || this.list
-                console.log(this.$store.state.orderDetail)
             } 
             else {
                 this.list = res.foods.filter(element => {
