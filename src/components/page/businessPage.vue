@@ -52,7 +52,6 @@ export default {
         }
       })
       this.$store.commit('ADD_BUSINESS', this.businessInfo)
-      console.log(this.$store.state.businessInfo)
     })
     
     // console.log(this.imgsrc)

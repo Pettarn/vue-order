@@ -13,4 +13,6 @@ export default {
     userAddress: '',
     // 订单信息
     orderDetail: [],
+    // 历史订单
+    orderList: [],
 }

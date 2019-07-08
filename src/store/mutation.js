@@ -1,4 +1,4 @@
-import { ADD_USER, ADD_BUSINESS, ADD_ISLOGIN, SET_ADDRESS, SET_TOTALVALUE, SET_TOTALCOUNT, SET_ORDERDETAIL } from './mutationType'
+import { ADD_USER, ADD_BUSINESS, ADD_ISLOGIN, SET_ADDRESS, SET_TOTALVALUE, SET_TOTALCOUNT, SET_ORDERDETAIL, SET_ORDERLIST } from './mutationType'
 
 export default {
     // add userInfo in state
@@ -27,6 +27,11 @@ export default {
     },
     // set orderDetail in state
     [SET_ORDERDETAIL] (state, list) {
-        state.orderDetail = list.filter(item => item.count !== 0)
+        // state.orderDetail = list.filter(item => item.count !== 0)
+        state.orderDetail = list
+    },
+    // set orderList in state
+    [SET_ORDERLIST] (state, item) {
+        state.orderList.unshift(item)
     }
 }

@@ -13,3 +13,7 @@ export const setUser = (params) => {
 export const getAddress = (params) => {
     return http.fetchPost(`${http.baseUrl}/showTypeAddress`, params)
 }
+
+export const getOrderList = (params) => {
+    return http.fetchPost(`${http.baseUrl}/selectorderform`, params)
+}

@@ -39,9 +39,9 @@
                 <div id="business-index-bottom-cart-numb">{{ totalCount }}</div>
             </div>
             <div id="business-index-bottom-count">
-                <div>{{ totalCount }}</div>
                 <div></div>
-                <div>{{ totalValue | capitalize }}￥</div>
+                <div></div>
+                <div>￥{{ totalValue | capitalize }}</div>
             </div>
         </div>
     </div>
@@ -49,7 +49,7 @@
 
 <script>
 import '../../assets/icon/iconfont'
-import {getMenu, getBusiness} from '../../api/business'
+import {getMenu} from '../../api/business'
 export default {
     data () {
         return {
@@ -67,7 +67,6 @@ export default {
                     name: "爽口凉菜",
                 },
             ],
-            orderObj: {},
             businessId: this.$route.query.businessId || this.$store.state.businessInfo.businessId,
             // 如果store里面存的值为空那么初始化为0
             totalCount: this.$store.state.totalCount || 0,
@@ -95,8 +94,8 @@ export default {
             })
         },
         jumpToCart () {
-            this.$store.commit('SET_TOTALVALUE', this.totalValue.toFixed(2))
             this.$store.commit('SET_ORDERDETAIL', this.list)
+            this.$store.commit('SET_TOTALVALUE', this.totalValue.toFixed(2))
             this.$store.commit('SET_TOTALCOUNT', this.totalCount)
             this.$router.push('/cart')
         }
@@ -108,15 +107,18 @@ export default {
     },
     created () {
         getMenu().then(res => {
-            // if((this.list)&&(this.list[0].businessId === this.$store.state.orderDetail[0].businessId)) {
-            //     this.list = this.$store.state.orderDetail
-            // } 
-            // else {
+            if(this.list && this.$store.state.orderDetail.length) {
+                this.list = this.$store.state.orderDetail || this.list
+                console.log(this.$store.state.orderDetail)
+            } 
+            else {
                 this.list = res.foods.filter(element => {
                     return element.businessId == (this.$route.query.businessId || this.$store.state.businessInfo.id)
                 })
-                console.log(this.$store.state.orderDetail[0])
-            // }
+                this.list.forEach(item => {
+                    item.count = item.count || 0
+                })
+            }
         })
         
     },
@@ -222,13 +224,15 @@ export default {
 #business-index-bottom-count {
     position: relative;
     display: grid;
-    grid-template: 1fr / 20% 50% 30%;
+    grid-template: 1fr / 10% 50% 40%;
 }
 #business-index-bottom-count>div {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid;
+    font-size: 1.2em;
+    padding-right: 10px;
+    color: #fff;
 }
 #business-index-bottom-cart-numb {
     z-index: 100;
@@ -244,6 +248,7 @@ export default {
     padding: 3px;
     border-radius: 16px;
     background-color: rgb(211, 24, 24);
+    color: #fff;
 }
 #business-index-goodslist-cell-left-img {
     width: 100%;

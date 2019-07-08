@@ -12,11 +12,16 @@
             </div>
         </div>
         <div id="order-body">
-            <div id="order-body-address">{{ address }}</div>
-            <div id="order-body-goodslist">{{ goodsList }}</div>
-            <div id="order-body-totalValue">{{ totalValue }}</div>
+            <div id="order-body-address">地址：{{ address }}</div>
+            <div id="order-body-goodslist">
+                <div id="order-body-goodslist-eachfood" v-for="item in orderDetail" :key="item.id">
+                    <div>{{ item.name }}</div>
+                    <div>{{ item.count }}</div>
+                </div>
+            </div>
+            <div id="order-body-totalValue">总价：￥{{ totalValue }}</div>
             <div id="order-body-submit">
-                <input id="order-body-submit-button" type="button" :value="orderState">
+                <input id="order-body-submit-button"  @click="purchase()" type="button" value="提交订单">
             </div>
         </div>
     </div>
@@ -25,16 +30,20 @@
 <script>
 export default {
     name: "order",
-    mounted() {
-
+    methods: {
+        purchase () {
+            alert('已付款')
+            // console.log('已付款')
+            this.$store.commit('SET_ORDERLIST', this.orderDetail)
+        }
     },
     data () {
         return {
             address: this.$store.state.userAddress,
             totalValue: this.$store.state.totalValue,
-            orderState: [
-                
-            ],
+            orderDetail: this.$store.state.orderDetail.filter(item => {
+                return item.count !== 0
+            })
         }
     },
     computed: {
@@ -43,9 +52,7 @@ export default {
         }
     },
     created() {
-        console.log(this.$store.state.userAddress)
         console.log(this.$store.state.orderDetail)
-        console.log(this.$store.state.totalValue)
         
     },
 }
@@ -56,7 +63,7 @@ export default {
   width: 2em;
   height: 2em;
   vertical-align: -0.15em;
-  fill: currentColor;
+  fill: #ffffff;
   overflow: hidden;
 }
 #order {
@@ -72,7 +79,8 @@ export default {
     height: 50px;
     top: 0;
     left: 0;
-    background-color: blue;
+    background-color: #008dfe;
+    color: #ffffff;
 }
 #order-head-back {
     position: absolute;
@@ -97,16 +105,46 @@ export default {
     position: relative;
     top: 50px;
 }
-#order-body>div {
-    width: 100%;
+#order-body-totalValue {
+    display: flex;
+    align-items: center;
+    position: relative;
     height: 50px;
-    font-size: 2em;
-    background-color: rgb(58, 224, 224);
+    color: #000;
+    font-size: 1.5em;
+    padding-left: 10px;
+    background-color: #ffffff;
 }
 #order-body-submit-button {
+    position: relative;
     width: 100%;
-    height: 100%;
-    background-color: rgb(201, 192, 192);
+    height: 50px;
+    background-color: #4dc160;
+    color: #ffffff;
+    font-size: 1.7em;
+}
+#order-body-goodslist {
+    position: relative;
+}
+#order-body-goodslist-eachfood {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 10px;
+    font-size: 1.5em;
+    background-color: #fff;
+    color: red;
+}
+#order-body-address {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    font-size: 1.5em;
+    padding-left: 10px;
+    background-color: #fff;
 }
 </style>
 

@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import {getComments} from '../../api/business'
 export default {
     
 }

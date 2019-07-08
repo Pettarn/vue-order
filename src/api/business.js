@@ -10,3 +10,8 @@ export const getBusiness = (params = {}) => {
 export const getMenu = (params = {}) => {
     return http.fetchPost(`${http.baseUrl}/showTypeFoodtwo`, params)
 }
+
+// 商家的评价
+export const getComments = (params = {}) => {
+    return http.fetchPost(`${baseUrl}/showTypeComments`, params)
+}

@@ -9,8 +9,8 @@
                         <img style="{position: absolute; width: 100%; height: 100%;}" :src="item.imgsrc">
                     </div>
                     <div id="recommend-each-business-per-right">
-                        <div style="font-size: 2.5em;">{{ item.name }}</div>
-                        <div style="font-size: 1.5em;">
+                        <div style="font-size: 1.5em;">{{ item.name }}</div>
+                        <div style="font-size: 1.2em;">
                             <span style="color: #ff6300;">#4.7</span>
                             <span>月售2008</span>
                         </div>
@@ -53,7 +53,7 @@ export default {
     created() {
         getBusiness().then(res => {
             this.list = res.business
-            console.log(this.list)
+            // console.log(this.list)
         })
         // console.log(this.$store.state.businessId)
     },
