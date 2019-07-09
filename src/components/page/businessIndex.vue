@@ -107,6 +107,7 @@ export default {
     },
     created () {
         getMenu().then(res => {
+            // if(this.list && this.$store.state.orderDetail.length) {
             if(this.list && this.$store.state.orderDetail.length) {
                 this.list = this.$store.state.orderDetail || this.list
             } 

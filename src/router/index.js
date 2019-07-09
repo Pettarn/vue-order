@@ -84,11 +84,11 @@ let routes = [
   {
     path: '/cart',
     component: cart,
+  },
+  {
+    path: '*',
+    redirect: '/',
   }
-  // {
-  //   path: '*',
-  //   redirect: '/',
-  // }
 ]
 
 let router = new Router({

@@ -10,7 +10,7 @@
         </div>
         <div id="address-body">
             <!-- <div v-for="item in addressList" :key="item">{{ item }}</div> -->
-            <div id="address-body-list" v-for="item in addressList" :key="item">
+            <div id="address-body-list" v-for="item in addressList" :key="item.id">
                 <div id="address-body-list-left">{{ item.adress }}</div>
                 <div id="address-body-list-right">
                     <svg class="collect" @click="setMainAddress(item.id)" aria-hidden="true">
@@ -29,7 +29,9 @@ export default {
     data() {
         return {
             userId: '',
-            addressList: [],
+            addressList: [
+                // '西青区宾水西道'
+            ],
             mainAddress: null,
         }
     },
@@ -48,7 +50,7 @@ export default {
     created () {
         // this.userId = this.$store.state.
         let params = {}
-        params.customerId = this.$store.state.userInfo.id
+        params.customerId = 1
         // console.log(params.customerId)
         getAddress(params).then(res => {
             this.addressList = res.address

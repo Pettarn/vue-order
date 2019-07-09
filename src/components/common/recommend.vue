@@ -53,7 +53,6 @@ export default {
     created() {
         getBusiness().then(res => {
             this.list = res.business
-            // console.log(this.list)
         })
         // console.log(this.$store.state.businessId)
     },

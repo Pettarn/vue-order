@@ -14,7 +14,11 @@
                     <div id="my-home-body-avater-name-message">再忙也要记得吃饭哟~</div>
                 </router-link>
                 <div id="my-home-body-avater-picture">
-                    <img style="width: 100%; height: 100%;" src="https://p1.ssl.qhimgs1.com/sdr/400__/t017533ac031cd682c1.jpg">
+                    <div style="width: 100%; height: 100%;">
+                        <svg class="headimg" aria-hidden="true">
+                            <use xlink:href="#icon02"></use>
+                        </svg>
+                    </div>
                 </div>
             </div>
             <div id="my-home-body-finance">
@@ -65,6 +69,13 @@ export default {
 </script>
 
 <style scoped>
+    .headimg {
+        width: 100%;
+        height: 100%;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
     .icon {
         width: 2em;
         height: 2em;
@@ -139,7 +150,7 @@ export default {
         right: 0;
         height: 100%;
         width: 30%;
-        background-color: aqua;
+        background-color: #b3abab;
     }
     #my-home-body-finance {
         position: relative;

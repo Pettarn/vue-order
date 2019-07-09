@@ -8,8 +8,8 @@
         <div id="register-form">
             <input id="register-form-name" type="text" placeholder="用户名" v-model="name">
             <input id="register-form-phone" type="text" placeholder="电话号码" v-model="phone">
-            <input id="register-form-password" type="text" placeholder="输入密码" v-model="password">
-            <input id="register-form-again" type="text" placeholder="再次输入密码" v-model="password">
+            <input id="register-form-password" type="password" placeholder="输入密码" v-model="password">
+            <input id="register-form-again" type="password" placeholder="再次输入密码">
             <div id="register-form-register">
                 <input id="register-form-register-button" type="button" value="注册" @click="register">
             </div>

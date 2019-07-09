@@ -1,4 +1,4 @@
-import { ADD_USER, ADD_BUSINESS, ADD_ISLOGIN, SET_ADDRESS, SET_TOTALVALUE, SET_TOTALCOUNT, SET_ORDERDETAIL, SET_ORDERLIST } from './mutationType'
+import { ADD_USER, ADD_BUSINESS, ADD_ISLOGIN, SET_ADDRESS, SET_TOTALVALUE, SET_TOTALCOUNT, SET_ORDERDETAIL, SET_ORDERLIST, CLEAR_STATE,CLEAR_ORDERDETAIL } from './mutationType'
 
 export default {
     // add userInfo in state
@@ -33,5 +33,22 @@ export default {
     // set orderList in state
     [SET_ORDERLIST] (state, item) {
         state.orderList.unshift(item)
+    },
+    // clear all the attributes in state
+    [CLEAR_STATE] (state) {
+        state.isLogin = 0
+        state.userInfo = null
+        state.totalValue = null
+        state.totalCount = null
+        state.businessInfo = []
+        state.userAddress = ''
+        state.orderDetail = []
+        state.orderList = []
+    },
+    // clear orderDetail
+    [CLEAR_ORDERDETAIL] (state) {
+        state.orderDetail = []
+        state.totalCount = null
+        state.totalValue = null
     }
 }

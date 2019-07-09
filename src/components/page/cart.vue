@@ -40,6 +40,8 @@ export default {
             params.totalPrice = this.totalValue
             params.state = '未送达'
             this.$store.commit('SET_ORDERLIST', params)
+            this.$store.commit('CLEAR_ORDERDETAIL')
+            this.$router.push('/')
         }
     },
     data () {

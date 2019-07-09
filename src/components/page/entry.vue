@@ -31,6 +31,9 @@ export default {
             orderList: [],
         }
     },
+    created () {
+        this.$store.commit('CLEAR_STATE')
+    },
     methods: {
         login () {
             let params = {}
