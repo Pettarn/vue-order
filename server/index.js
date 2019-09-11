@@ -14,9 +14,11 @@ app.get('/static/*', function (req, res) {
     fileName = fileName.split('')
     fileName.shift()
     fileName = fileName.join('')
-    console.log(path.resolve(__dirname, 'dist', fileName))
-    res.sendFile(path.resolve(__dirname, 'dist', fileName))
+    console.log(path.resolve(__dirname, '../dist', fileName))
+    res.sendFile(path.resolve(__dirname, '../dist', fileName))
 })
+
+app.get('')
 
 app.listen(3000, function () {
     console.log('Server is running.')
